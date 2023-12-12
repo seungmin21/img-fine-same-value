@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    *{margin: 0; padding: 0;}
-    #root {
-      width: 100vh;
-      height: 100vh;
-      /* flex set */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-    }
-  </style>
-</head>
-<body>
-  <div id="root">
-    <div id="container-one">
-      <div id="text-name">참고 이름</div>
-      <input type="text" id="search-bar" name="search-bar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        width: 100vh;
+        height: 100vh;
+        /* flex set */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="container-one">
+        <div id="text-name">참고 이름</div>
+        <input type="text" id="search-bar" name="search-bar" />
+      </div>
+      <div id="container-two">
+        <!-- 이미지가 출력될 태그 -->
+        <div></div>
+      </div>
     </div>
-    <div id="container-two">
-      <!-- 이미지가 출력될 태그 -->
-      <div></div>
-    </div>
-  </div>
-  <script>
-
-  </script>
-</body>
+    <script>
+      const root = document.getElementById('root');
+      console.dir(root)
+    </script>
+  </body>
 </html>
