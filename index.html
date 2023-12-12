@@ -23,7 +23,7 @@
   <body>
     <div id="root">
       <div id="container-one">
-        <div id="text-name">참고 이름</div>
+        <h3 id="text-name">참고 이름</h3>
         <input type="text" id="search-bar" name="search-bar" />
       </div>
       <div id="container-two">
@@ -34,7 +34,9 @@
     <script>
       const root = document.getElementById('root');
       const textName = document.getElementById('text-name')
-      console.dir(textName)
+      textName.addEventListener('click', () => {
+        alert('Hello world')
+      })
     </script>
   </body>
 </html>
