@@ -32,11 +32,14 @@
       </div>
     </div>
     <script>
-      const root = document.getElementById('root');
-      const textName = document.getElementById('text-name')
-      textName.addEventListener('click', () => {
-        alert('Hello world')
-      })
+      const root = document.getElementById("root");
+      const textName = document.getElementById("text-name");
+      const items = ["사과", "바나나", "초코", "우유"];
+      const number = 4;
+      textName.addEventListener("click", () => {
+        const randomItem = Math.floor(Math.random() * item.length);
+          alert(randomItem)
+      });
     </script>
   </body>
 </html>
