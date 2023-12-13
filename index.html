@@ -36,10 +36,14 @@
       const textName = document.getElementById("text-name");
       const items = ["사과", "바나나", "초코", "우유"];
       const number = 4;
+      let count = 0;
       textName.addEventListener("click", () => {
-        const randomItem = Math.floor(Math.random() * items.length);
-        const randomIndex = items[randomItem]
-          alert(randomIndex)
+        if (count < number) {
+          const randomIndex = Math.floor(Math.random() * items.length);
+          const randomItem = items[randomIndex];
+          alert(randomItem);
+          count++;
+        }
       });
     </script>
   </body>
