@@ -37,9 +37,11 @@
       const items = ["사과", "바나나", "초코", "우유"];
       const number = 4;
       textName.addEventListener("click", () => {
+        for (let i = 0; i < number; i++) {
         const randomItem = Math.floor(Math.random() * items.length);
         const randomIndex = items[randomItem]
           alert(randomIndex)
+        }
       });
     </script>
   </body>
