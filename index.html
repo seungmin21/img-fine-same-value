@@ -28,12 +28,14 @@
       </div>
       <div id="container-two">
         <!-- 이미지가 출력될 태그 -->
-        <div></div>
+        <h1 id="result"></h1>
       </div>
     </div>
     <script>
       const root = document.getElementById("root");
       const textName = document.getElementById("text-name");
+      const searchBar = document.getElementById('search-bar');
+      const h1 = document.getElementById('result');
       const items = ["사과", "바나나", "초코", "우유"];
       const number = 4;
       let count = 0;
@@ -45,6 +47,9 @@
           count++;
         }
       });
+      searchBar.addEventListener('click', () => {
+        h1.textContent = searchBar.value
+      }
     </script>
   </body>
 </html>
