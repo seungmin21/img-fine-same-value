@@ -150,8 +150,10 @@
           count++;
         }
       });
-      searchBar.addEventListener("click", () => {
-        h1.textContent = searchBar.value;
+      searchBar.addEventListener("keypress", event => {
+        if (event.keyCode === 13) {
+          h1.textContent = searchBar.value;
+        }
       });
     </script>
   </body>
