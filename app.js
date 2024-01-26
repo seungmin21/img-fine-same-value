@@ -11,8 +11,15 @@ app.use(bodyParser.json());
 // 정적 파일 제공 설정
 app.use('/cat-image', express.static(path.join(__dirname, 'cat-image')));
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get("/back-ground", (req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+})
+
+
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 app.post('/addValue', (req, res) => {
@@ -22,7 +29,7 @@ app.post('/addValue', (req, res) => {
     return res.status(400).send('Invalid value');
   }
 
-  fs.readFile('log.json', 'utf8', (err, data) => {
+  fs.readFile('src/log.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).send('Error reading log file');
@@ -40,7 +47,7 @@ app.post('/addValue', (req, res) => {
 
     log.push(value); // 새 값 추가
 
-    fs.writeFile('log.json', JSON.stringify(log), (err) => {
+    fs.writeFile('src/log.json', JSON.stringify(log), (err) => {
       if (err) {
         console.error(err);
         return res.status(500).send('Error writing to log file');
