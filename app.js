@@ -8,6 +8,9 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// 정적 파일 제공 설정
+app.use('/cat-image', express.static(path.join(__dirname, 'cat-image')));
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
