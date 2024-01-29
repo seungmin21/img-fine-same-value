@@ -8,15 +8,9 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// 정적 파일 제공 설정
+// static으로 정적 파일 제공(이미지파일)
 app.use('/cat-image', express.static(path.join(__dirname, 'cat-image')));
-
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.get("/back-ground", (req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-})
-
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
