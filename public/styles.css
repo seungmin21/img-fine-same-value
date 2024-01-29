@@ -3,6 +3,7 @@
   padding: 0;
 }
 
+/* body 대타 */
 #root {
   width: 100vw;
   height: 100vh;
@@ -11,14 +12,29 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background-image: url('/back-ground/mystery-box.jpg');
 }
 
+/* 가상요소 설정 */
+#root::after {
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("cat-image/catTower.jpg");
+  background-size: cover;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+/* 첫번째 컨테이너 */
 #container-one {
   display: flex;
   flex-direction: column;
 }
 
+/* 참고 버튼 */
 button {
   width: 120px;
   height: 120px;
@@ -34,6 +50,7 @@ button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 추가 (선택적) */
 }
 
+/* 이미지 출력되는 위치 */
 #result {
   display: flex;
   justify-content: center;
@@ -49,6 +66,7 @@ img {
   height: 550px;
 }
 
+/* input text 입력 바 */
 #search-bar {
   width: 280px;
   height: 30px;
