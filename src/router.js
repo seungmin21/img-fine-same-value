@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 // index.html을 읽어서 get요청을 하는 로직
-router.get("/", (req, res) => {
+router.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
@@ -46,8 +46,8 @@ router.post('/addValue', (req, res) => {
 });
 
 // fs.readFilSync(path(분석할 매체), option(옵션))
-const jsonData = JSON.parse(fs.readFileSync('./src/data.json', 'utf8'))
-const jsonImageData = JSON.parse(fs.readFileSync('./src/ImageData.json', 'utf8'))
+const jsonData = JSON.parse(fs.readFileSync('./src/object/data.json', 'utf8'))
+const jsonImageData = JSON.parse(fs.readFileSync('./src/object/ImageData.json', 'utf8'))
 
 // src/data.json파일을 조회할 로직
 router.get('/getData', (req, res) => {
