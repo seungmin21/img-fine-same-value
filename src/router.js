@@ -44,7 +44,7 @@ router.post('/addValue', (req, res) => {
 });
 
 // fs.readFilSync(path(분석할 매체), option(옵션))
-const jsonData = JSON.parse(fs.readFileSync('data.json', 'uft8'))
+const jsonData = JSON.parse(fs.readFileSync('data.json', 'utf8'))
 
 router.get('/getData', (req, res) => {
   res.json(jsonData);
