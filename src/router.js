@@ -4,24 +4,25 @@ const path = require('path');
 const fs = require('fs');
 
 // index.html을 읽어서 get요청을 하는 로직
-router.get("*", (req, res) => {
+router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
+
 
 // 클라이언트 파일에서 서버로 post 요청을 진행하는 로직
 router.post('/addValue', (req, res) => {
   const { value } = req.body;
-
+  
   if (!value) {
     return res.status(400).send('Invalid value');
   }
-
-  fs.readFile('src/log.json', 'utf8', (err, data) => {
+  
+  fs.readFile('./object/src/log.json', 'utf8', (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).send('Error reading log file');
     }
-
+    
     let log = [];
     if (data) {
       try {
@@ -31,15 +32,15 @@ router.post('/addValue', (req, res) => {
         return res.status(500).send('Error parsing log file');
       }
     }
-
+    
     log.push(value); // 새 값 추가
-
-    fs.writeFile('src/log.json', JSON.stringify(log), (err) => {
+    
+    fs.writeFile('./object/src/log.json', JSON.stringify(log), (err) => {
       if (err) {
         console.error(err);
         return res.status(500).send('Error writing to log file');
       }
-
+      
       res.status(200).send('Value added successfully');
     });
   });
