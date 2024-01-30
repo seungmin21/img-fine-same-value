@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 // static으로 정적 파일 제공(이미지파일)
 app.use('/cat-image', express.static(path.join(__dirname, 'cat-image')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// 라우터 설정
 app.use('/', router);
 
 app.listen(port, () => {
