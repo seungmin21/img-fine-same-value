@@ -60,7 +60,7 @@
       fetch('./getImage')
         .then(response => response.json())
         .then(data => {
-          const images = data.images;
+          const images = data.elements;
           const selectedImage = images[inputValue];
           if (selectedImage) {
             const imageContainer = document.getElementById("result");
