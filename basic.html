@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="root">
+    <div id="container-one">
+      <button id="text-name">Hint</button>
+      <input type="text" id="search-bar" name="search-bar" placeholder="입력해주세요." />
+    </div>
+    <div id="container-two">
+      <!-- 이미지가 출력될 태그 -->
+      <div id="result">JPG</div>
+    </div>
+  </div>
+  <script>
+    const root = document.getElementById("root");
+    const searchBar = document.getElementById("search-bar");
+    const h1 = document.getElementById("result");
+    // 테스트용 배열
+    //const items = ["사과", "바나나", "초코", "우유"];
+    const textName = document.getElementById("text-name");
+    const number = 100;
+    let count = 0;
+
+    // 참고용 이름을 보여주는 클릭 이벤트
+    textName.addEventListener("click", () => {
+      if (count < number) {
+        fetch('/getData')
+          .then(response => response.json())
+          .then(data => {
+            const cat_name = data.cat_name;
+            const randomIndex = Math.floor(Math.random() * cat_name.length);
+            const randomItem = cat_name[randomIndex];
+            alert(randomItem);
+            count++;
+          })
+          .catch(error => console.error('Error fetching Data:', error));
+      }
+    });
+
+    // 입력한 텍스트에 Enter 키로 이벤트 발생
+    searchBar.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        sendValue()
+        showImage();
+      }
+    });
+
+    // 입력한 value와 일치하는 value를 가진 이미지를 출력하는 함수
+    function showImage() {
+      const inputValue = searchBar.value;
+
+      fetch('/getImage')
+        .then(response => response.json())
+        .then(data => {
+          const images = data.images;
+          const selectedImage = images[inputValue];
+          if (selectedImage) {
+            const imageContainer = document.getElementById("result");
+            const imagePath = selectedImage; // 이미지 파일은 같은 폴더에 있으므로 경로를 따로 지정하지 않아도 됨
+            imageContainer.innerHTML = `<img src="${imagePath}" alt="${inputValue} 이미지">`;
+          } else {
+            alert("일치하는 이미지를 찾을 수 없습니다.");
+          }
+        })
+        .catch(error => console.error('Error fetching Data:', error));
+    }
+
+    // 입력한 value를 json 파일에 보내는 함수
+    function sendValue() {
+      const inputValue = searchBar.value;
+
+      fetch('/addValue', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ value: inputValue }),
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(data => {
+          console.log(data); // Success message from server
+        })
+        .catch(error => {
+          console.error('There was an error:', error);
+        });
+    }
+  </script>
+</body>
+
+</html>
