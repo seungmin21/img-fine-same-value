@@ -1,9 +1,11 @@
 import "./App.css";
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 
 function App() {
   const [count, setCount] = useState(0);
   const [number] = useState(100);
+  const [inputText, setInputText] = useState("");
   const cat_names = [
     "아비니시안",
     "에게안",
@@ -104,7 +106,7 @@ function App() {
     "터키시 앙고라",
     "터키시 반",
     "반",
-    "요크 초콜릿"
+    "요크 초콜릿",
   ];
   const [randomItem, setRandomItem] = useState(null);
 
@@ -118,15 +120,37 @@ function App() {
     }
   };
 
+  const handleChange = (e) => {
+    setInputText(e.target.value); // 입력된 텍스트를 상태에 업데이트
+  };
+
+  const handleKeyPress = async (e) => {
+    if (e.key === "Enter" && inputText.trim() !== "") {
+      try {
+        await axios.post("/api/addValue", {
+          value: inputText,
+        }); // 여기서 '/api/addValue'로 수정
+        console.log("Value added successfully!");
+      } catch (error) {
+        console.error("Error adding value:", error);
+      }
+    }
+  };
+
   return (
     <div id="Instead">
       <div id="container-one">
-        <button id="text-name" onClick={handleClick}>Hint</button>
+        <button id="text-name" onClick={handleClick}>
+          Hint
+        </button>
         <input
           type="text"
           id="search-bar"
           name="search-bar"
           placeholder="입력해주세요."
+          value={inputText}
+          onChange={handleChange}
+          onKeyPress={handleKeyPress}
         />
       </div>
       <div id="container-two">
