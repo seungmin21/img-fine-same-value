@@ -1,4 +1,4 @@
-export const cat_names = [
+const cat_names = [
   "아비니시안",
   "에게안",
   "아메리칸 밥테일",
@@ -100,3 +100,5 @@ export const cat_names = [
   "반",
   "요크 초콜릿",
 ];
+
+export default cat_names;
