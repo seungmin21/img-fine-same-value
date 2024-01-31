@@ -127,7 +127,7 @@ function App() {
   const handleKeyPress = async (e) => {
     if (e.key === "Enter" && inputText.trim() !== "") {
       try {
-        await axios.post("/api/addValue", {
+        await axios.post("http://localhost:3001/api/addValue", {
           value: inputText,
         }); // 여기서 '/api/addValue'로 수정
         console.log("Value added successfully!");
