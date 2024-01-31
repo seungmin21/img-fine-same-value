@@ -6,6 +6,8 @@ function App() {
   const [count, setCount] = useState(0);
   const [number] = useState(100);
   const [inputText, setInputText] = useState("");
+  const [imagePath, setImagePath] = useState(null);
+  const [randomItem, setRandomItem] = useState(null);
   const cat_names = [
     "아비니시안",
     "에게안",
@@ -20,7 +22,7 @@ function App() {
     "티파니",
     "발리니즈",
     "밤비노",
-    "벵갈",
+    "뱅갈",
     "버먼",
     "봄베이",
     "브라질리안 쇼트헤어",
@@ -108,7 +110,6 @@ function App() {
     "반",
     "요크 초콜릿",
   ];
-  const [randomItem, setRandomItem] = useState(null);
 
   const handleClick = () => {
     if (count < number) {
@@ -122,6 +123,7 @@ function App() {
 
   const handleChange = (e) => {
     setInputText(e.target.value); // 입력된 텍스트를 상태에 업데이트
+    setImagePath(null);
   };
 
   const handleKeyPress = async (e) => {
@@ -131,8 +133,12 @@ function App() {
           value: inputText,
         }); // 여기서 '/api/addValue'로 수정
         console.log("Value added successfully!");
+
+        const imageFileName = `${inputText}.jpg`;
+        await fetch(`cat-image/${imageFileName}`);
+        setImagePath(`cat-image/${imageFileName}`);
       } catch (error) {
-        console.error("Error adding value:", error);
+        console.error("Error adding value or fetching image:", error);
       }
     }
   };
@@ -155,7 +161,7 @@ function App() {
       </div>
       <div id="container-two">
         {/* 이미지가 출력될 태그 */}
-        <div id="result">JPG</div>
+        <div id="result">{imagePath && <img src={imagePath} alt="?" />}</div>
       </div>
     </div>
   );
