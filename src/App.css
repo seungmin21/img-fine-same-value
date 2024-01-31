@@ -69,6 +69,20 @@ img {
 /* input text 입력 바 */
 #search-bar {
   width: 280px;
-  height: 30px;
+  height: 35px;
   margin-bottom: 140px;
+  border-radius: 10px;
+}
+
+#Log-Mark {
+  display :flex;
+  flex-direction: column;
+}
+
+.marginLeft {
+  margin-left: 75px;
+}
+
+.marginBottom {
+  margin-bottom: 20px;
 }
