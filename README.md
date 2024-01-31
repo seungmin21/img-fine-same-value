@@ -49,11 +49,23 @@ IMG-FINE-SAME-VALUE
 └── server.js
 
 
-
+eslint rules 지정
 package.json
 eslintConfig
     "rules": {
       "no-unused-vars": "off"
     }
-추가
+
+두개의 서버를 돌릴 땐 각각 돌려야하는 번거로움이 존재
+ex) node express서버이름.js
+    npm start
+
+npm-run-all을 사용하면 사용할 명령어를 지정하면 두개의 서버를 한번에 켤 수 있다.
+package.json
+"scripts" : {
+  "start:server": "node your-express-server.js",
+  "start:client": "react-scripts start",
+  "start": "npm-run-all -p start:server start:client",
+}
+
 
