@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* body 대타 */
+#Instead {
+  width: 100vw;
+  height: 100vh;
+  /* flex set */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* 가상요소 설정 */
+#Instead::after {
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/public/cat-image/catTower.jpg");
+  background-size: cover;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+/* 첫번째 컨테이너 */
+#container-one {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 참고 버튼 */
+button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 35px;
+  cursor: pointer;
+  font-size: 35px;
+  font-weight: 400;
+}
+
+button:hover {
+  background-color: #2980b9; /* 활성화 효과를 주기 위한 다른 배경색 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 추가 (선택적) */
+}
+
+/* 이미지 출력되는 위치 */
+#result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 550px;
+  margin-left: 50px;
+  border: 7px solid rgb(48, 48, 48);
+}
+
+img {
+  width: 400px;
+  height: 550px;
+}
+
+/* input text 입력 바 */
+#search-bar {
+  width: 280px;
+  height: 30px;
+  margin-bottom: 140px;
+}
