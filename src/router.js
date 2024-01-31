@@ -43,5 +43,22 @@ router.post('/api/addValue', (req, res) => {
   });
 });
 
+router.get('/api/logData', (req, res) => {
+  fs.readFile(path.join(__dirname, 'log.json'), 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading log.json file:', err);
+      res.status(500).send('Error log.json file');
+      return;
+    }
+
+    try {
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    } catch (parseError) {
+      console.error('Error parsing log.json file:', parseError);
+      res.status(500).send('Error parsing log.json file');
+    }
+  });
+});
 
 module.exports = router;
