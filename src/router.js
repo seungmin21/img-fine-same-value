@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
-router.post('/addValue', (req, res) => {
+router.post('/api/addValue', (req, res) => {
   const { value } = req.body;
 
   if (!value) {
@@ -42,5 +42,6 @@ router.post('/addValue', (req, res) => {
     });
   });
 });
+
 
 module.exports = router;
