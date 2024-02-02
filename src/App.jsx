@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import cat_names from "./nameValue";
 
 function App() {
@@ -61,16 +61,13 @@ function App() {
     fetchData();
   }, []);
 
-  const navigate = useNavigate();
-
-  const PageUpdate = () => {
-    navigate("/api/test");
-  };
-
   return (
     <div id="Instead">
       <div id="container-zero">
-        <div id="Log-Maker" onClick={PageUpdate}>
+        <div>
+        <Link to="/">이동</Link>
+        </div>
+        <div id="Log-Maker">
           <div id="Log-Image"></div>
           <h3 className="marginTop">이미지 사전</h3>
         </div>
