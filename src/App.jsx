@@ -1,8 +1,8 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import cat_names from "./nameValue";
+import { Link } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,7 +30,9 @@ function App() {
     setImagePath(null);
   };
 
+  // onkeyPress를 사용하기 위한 함수
   const handleKeyPress = async (e) => {
+    // trim 공백 제거 문자열 메서드
     if (e.key === "Enter" && inputText.trim() !== "") {
       try {
         await axios.post("http://localhost:3001/api/addValue", {
@@ -58,25 +60,35 @@ function App() {
       }
     };
 
+    // 초기 데이터 로드
     fetchData();
-  }, []);
+
+    // 2초마다 데이터 갱신
+    const intervalId = setInterval(fetchData, 2000);
+
+    // 컴포넌트가 언마운트되면 interval 정리
+    return () => clearInterval(intervalId);
+  }, []); // 빈 배열은 처음 한 번만 실행되도록 보장합니다.
 
   return (
     <div id="Instead">
+      <div id="container">
       <div id="container-zero">
-        <div>
-        <Link to="/">이동</Link>
-        </div>
         <div id="Log-Maker">
+          <Link to="https://github.com/seungmin21/img-fine-same-value">
           <div id="Log-Image"></div>
-          <h3 className="marginTop">이미지 사전</h3>
+          </Link>
+          <h3 className="marginTop-20">이미지 사전</h3>
         </div>
+        <hr />
         {logData.map((item, index) => (
-          <div className="marginTop-50 marginLeft-16" key={index}>
+          <div className="marginTop-20 marginLeft-16" key={index}>
             {item}
           </div>
         ))}
       </div>
+      </div>
+      <div id="box"></div>
       <div id="container-one">
         <button id="text-name" onClick={handleClick}>
           Hint
@@ -92,8 +104,8 @@ function App() {
         />
       </div>
       <div id="container-two">
-        <h3 className="marginLeft-140 marginBottom">
-          원하는 사진이 나오지 않을 수도 있습니다.
+        <h3 className="marginLeft-210 marginBottom-20">
+          주의 사진이 못생겼을 수도 있습니다.
         </h3>
         {/* 이미지가 출력될 태그 */}
         <div id="result">{imagePath && <img src={imagePath} alt="?" />}</div>
