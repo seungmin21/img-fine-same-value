@@ -7,6 +7,10 @@ router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
+//router.get("/api/test", res => {
+//  res.sendFile(path.join(__dirname, "public/test.html"))
+//})
+
 router.post('/api/addValue', (req, res) => {
   const { value } = req.body;
 
