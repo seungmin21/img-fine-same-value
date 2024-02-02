@@ -10,6 +10,7 @@
   /* flex set */
   display: flex;
   align-items: center;
+  justify-content: center;
   box-sizing: border-box;
 }
 
@@ -27,6 +28,18 @@
   z-index: -1;
 }
 
+#container {
+  width: 240px;
+  height: 100vh;
+  background-color: rgb(61, 38, 38);
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 0.85;
+}
+
+
 /* 첫번째 컨테이너 */
 #container-one {
   display: flex;
@@ -34,16 +47,23 @@
   margin-bottom: 50px;
 }
 
+
 #container-zero {
-  width: 35vw;
+  width: 25vw;
   height: 95vh;
-  margin-left: 25px;
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
 }
 
+#box {
+  width: 7vw;
+  height: 100vh;
+}
+
 #Log-Maker {
   display: flex;
+  margin-bottom: 30px;
 }
 
 #Log-Image {
@@ -75,15 +95,15 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 550px;
+  width: 500px;
+  height: 650px;
   margin-left: 120px;
   border: 7px solid rgb(48, 48, 48);
 }
 
 img {
-  width: 400px;
-  height: 550px;
+  width: 500px;
+  height: 650px;
 }
 
 /* input text 입력 바 */
@@ -99,8 +119,8 @@ img {
   flex-direction: column;
 }
 
-.marginLeft-140 {
-  margin-left: 140px;
+.marginLeft-210 {
+  margin-left: 210px;
 }
 
 .marginLeft-16 {
@@ -117,4 +137,9 @@ img {
 
 .marginTop-50 {
   margin-top: 50px;
+}
+
+hr {
+  width: 238px;
+  translate: -10px;
 }
