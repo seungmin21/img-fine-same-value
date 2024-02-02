@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import cat_names from "./nameValue";
 
 function App() {
@@ -60,11 +61,23 @@ function App() {
     fetchData();
   }, []);
 
+  const navigate = useNavigate();
+
+  const PageUpdate = () => {
+    navigate("/api/test");
+  };
+
   return (
     <div id="Instead">
-      <div id="Log-Mark">
-      {logData.map((item, index) => (
-          <div key={index}>{item}</div>
+      <div id="container-zero">
+        <div id="Log-Maker" onClick={PageUpdate}>
+          <div id="Log-Image"></div>
+          <h3 className="marginTop">이미지 사전</h3>
+        </div>
+        {logData.map((item, index) => (
+          <div className="marginTop-50 marginLeft-16" key={index}>
+            {item}
+          </div>
         ))}
       </div>
       <div id="container-one">
@@ -82,13 +95,11 @@ function App() {
         />
       </div>
       <div id="container-two">
-        <h3 className="marginLeft marginBottom">
+        <h3 className="marginLeft-140 marginBottom">
           원하는 사진이 나오지 않을 수도 있습니다.
         </h3>
         {/* 이미지가 출력될 태그 */}
-        <div id="result">
-          {imagePath && <img src={imagePath} alt="?" />}
-        </div>
+        <div id="result">{imagePath && <img src={imagePath} alt="?" />}</div>
       </div>
     </div>
   );
