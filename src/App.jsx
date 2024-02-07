@@ -50,6 +50,7 @@ function App() {
   };
 
   useEffect(() => {
+    // 마운트 되는 로직
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:3001/api/logData");
