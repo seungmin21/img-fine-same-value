@@ -105,7 +105,7 @@ function App() {
       </div>
       <div id="container-two">
         <h3 className="marginLeft-210 marginBottom-20">
-          주의 사진이 못생겼을 수도 있습니다.
+          *주의* 사진이 못생겼을 수도 있습니다.
         </h3>
         {/* 이미지가 출력될 태그 */}
         <div id="result">{imagePath && <img src={imagePath} alt="?" />}</div>
