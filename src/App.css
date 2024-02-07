@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* body 대타 */
+#Instead {
+  width: 100vw;
+  height: 100vh;
+  /* flex set */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* 가상요소 설정 */
+#Instead::after {
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/public/cat-image/catTower.jpg");
+  background-size: cover;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+#container {
+  width: 240px;
+  height: 100vh;
+  background-color: rgb(61, 38, 38);
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 0.85;
+}
+
+
+/* 첫번째 컨테이너 */
+#container-one {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+
+#container-zero {
+  width: 25vw;
+  height: 95vh;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#box {
+  width: 7vw;
+  height: 100vh;
+}
+
+#Log-Maker {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+#Log-Image {
+  background-image: url("/public/cat-image/pngwing.jpg");
+  background-size: cover;
+  width : 60px;
+  height: 60px;
+}
+
+
+/* 참고 버튼 */
+button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 35px;
+  cursor: pointer;
+  font-size: 35px;
+  font-weight: 400;
+}
+
+button:hover {
+  background-color: #2980b9; /* 활성화 효과를 주기 위한 다른 배경색 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 추가 (선택적) */
+}
+
+/* 이미지 출력되는 위치 */
+#result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 650px;
+  margin-left: 120px;
+  border: 7px solid rgb(48, 48, 48);
+}
+
+img {
+  width: 500px;
+  height: 650px;
+}
+
+/* input text 입력 바 */
+#search-bar {
+  width: 280px;
+  height: 35px;
+  margin-bottom: 140px;
+  border-radius: 10px;
+}
+
+#Log-Mark {
+  display :flex;
+  flex-direction: column;
+}
+
+.marginLeft-210 {
+  margin-left: 210px;
+}
+
+.marginLeft-16 {
+  margin-left: 16px;
+}
+
+.marginBottom-20 {
+  margin-bottom: 20px;
+}
+
+.marginTop-20 {
+  margin-top: 20px;
+}
+
+.marginTop-50 {
+  margin-top: 50px;
+}
+
+hr {
+  width: 238px;
+  translate: -10px;
+}
