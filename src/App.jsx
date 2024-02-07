@@ -19,6 +19,7 @@ function App() {
       const randomIndex = Math.floor(Math.random() * cat_names.length);
       const newItem = cat_names[randomIndex];
       setRandomItem(newItem);
+      // count = 0 일 때 count++ === count + 1
       setCount(count + 1);
       alert(newItem);
     }
@@ -35,11 +36,13 @@ function App() {
     // trim 공백 제거 문자열 메서드
     if (e.key === "Enter" && inputText.trim() !== "") {
       try {
+        // 여기서 '/api/addValue'로 수정
         await axios.post("http://localhost:3001/api/addValue", {
           value: inputText,
-        }); // 여기서 '/api/addValue'로 수정
+        });
         console.log("Value added successfully!");
 
+        // 문자열이 일치하는지
         const imageFileName = `${inputText}.jpg`;
         await fetch(`cat-image/${imageFileName}`);
         setImagePath(`cat-image/${imageFileName}`);
@@ -50,7 +53,7 @@ function App() {
   };
 
   useEffect(() => {
-    // 마운트 되는 로직
+    // 마운트(호출) 되는 위치
     const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:3001/api/logData");
@@ -94,6 +97,7 @@ function App() {
         <button id="text-name" onClick={handleClick}>
           Hint
         </button>
+        {/* onkeyPress */}
         <input
           type="text"
           id="search-bar"
@@ -101,7 +105,7 @@ function App() {
           placeholder="입력해주세요."
           value={inputText}
           onChange={handleChange}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyPress}
         />
       </div>
       <div id="container-two">
