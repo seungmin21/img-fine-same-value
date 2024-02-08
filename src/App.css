@@ -110,13 +110,17 @@ img {
 #search-bar {
   width: 280px;
   height: 35px;
-  margin-bottom: 140px;
+  margin-bottom: 20px;
   border-radius: 10px;
 }
 
 #Log-Mark {
   display :flex;
   flex-direction: column;
+}
+
+.padding-10 {
+  padding: 10px;
 }
 
 .marginLeft-210 {
@@ -131,6 +135,10 @@ img {
   margin-bottom: 20px;
 }
 
+.marginTop-10 {
+  margin-top: 10px;
+}
+
 .marginTop-20 {
   margin-top: 20px;
 }
@@ -142,4 +150,27 @@ img {
 hr {
   width: 238px;
   translate: -10px;
+}
+
+#memo-container {
+  margin-left: 2px;
+  background-color: rgb(240, 221, 221);
+  width: 272px;
+  height: 30vh;
+  border-radius: 10px;
+}
+
+.memoHeaderColor {
+  background-color: rgb(138, 94, 94);
+  width: 272px;
+  height: 40px;
+  border-radius: 10px 10px 0 0;
+}
+
+li {
+  margin-bottom: 7px;
+  font-size: 14px;
+  margin-left: 12px;
+  padding-left: 20px; /* 점의 여백을 고려하여 들여쓰기 크기 조절 */
+  text-indent: -20px;
 }
