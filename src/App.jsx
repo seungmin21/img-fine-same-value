@@ -109,7 +109,7 @@ function App() {
         />
         <div id="memo-container">
           <div className="memoHeaderColor">
-          <h3 className="padding-10 font-family-HY">사용 가이드</h3>
+          <h3 className="padding-10">사용 가이드</h3>
           </div>
           <div className="marginTop-10">
             <li>왼쪽의 빈 공간은 사용자가 입력한 내용에 관한 저장소입니다.</li>
