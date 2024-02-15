@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import cat_names from "./nameValue";
+import catNames from "./nameValue";
 import { Link } from "react-router-dom";
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
   // 랜덤으로 alert에 배열 중에 랜덤으로 요소를 출력
   const handleClick = () => {
     if (count < number) {
-      const randomIndex = Math.floor(Math.random() * cat_names.length);
-      const newItem = cat_names[randomIndex];
+      const randomIndex = Math.floor(Math.random() * catNames.length);
+      const newItem = catNames[randomIndex];
       setRandomItem(newItem);
       // count = 0 일 때 count++ === count + 1
       setCount(count + 1);
