@@ -92,7 +92,7 @@ function App() {
         ))}
       </div>
       </div>
-      <div id="box"></div>
+      <div className="box"></div>
       <div id="container-one">
         <button id="text-name" onClick={handleClick}>
           Hint
