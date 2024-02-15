@@ -119,6 +119,7 @@ function App() {
           </div>
         </div>
       </div>
+      {/* 세번째 컨테이너를 가리키기 위한 작명으로 사용 */}
       <div id="third-container">
         <h3 className="marginLeft-210 marginBottom-20">
           *주의* 사진이 못생겼을 수도 있습니다.
