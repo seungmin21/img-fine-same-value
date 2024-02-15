@@ -77,20 +77,20 @@ function App() {
   return (
     <div id="Instead">
       <div className="first-container">
-      <div className="iconLogText">
-        <div className="log-maker">
-          <Link to="https://github.com/seungmin21/img-fine-same-value">
-          <div className="log-image"></div>
-          </Link>
-          <h3 className="marginTop-20">이미지 사전</h3>
-        </div>
-        <hr />
-        {logData.map((item, index) => (
-          <div className="marginTop-20 marginLeft-16" key={index}>
-            {item}
+        <div className="iconLogText">
+          <div className="log-maker">
+            <Link to="https://github.com/seungmin21/img-fine-same-value">
+              <div className="log-image"></div>
+            </Link>
+            <h3 className="marginTop-20">이미지 사전</h3>
           </div>
-        ))}
-      </div>
+          <hr />
+          {logData.map((item, index) => (
+            <div className="marginTop-20 marginLeft-16" key={index}>
+              {item}
+            </div>
+          ))}
+        </div>
       </div>
       <div className="box"></div>
       <div className="second-container">
@@ -109,7 +109,7 @@ function App() {
         />
         <div className="use-guides">
           <div className="memoHeaderColor">
-          <h3 className="padding-10">사용 가이드</h3>
+            <h3 className="padding-10">사용 가이드</h3>
           </div>
           <div className="marginTop-10">
             <li>왼쪽의 빈 공간은 사용자가 입력한 내용에 관한 저장소입니다.</li>
