@@ -107,7 +107,7 @@ function App() {
           onChange={handleChange}
           onKeyDown={handleKeyPress}
         />
-        <div id="memo-container">
+        <div id="use-guides">
           <div className="memoHeaderColor">
           <h3 className="padding-10">사용 가이드</h3>
           </div>
