@@ -93,7 +93,7 @@ function App() {
       </div>
       </div>
       <div className="box"></div>
-      <div id="second-container">
+      <div className="second-container">
         <button id="text-name" onClick={handleClick}>
           Hint
         </button>
