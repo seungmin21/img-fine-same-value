@@ -28,6 +28,7 @@
   z-index: -1;
 }
 
+/* 첫번째 컨테이너 */
 .first-container {
   width: 240px;
   height: 100vh;
@@ -39,9 +40,8 @@
   opacity: 0.85;
 }
 
-
-/* 첫번째 컨테이너 */
-#container-one {
+/* 두번째 컨테이너 */
+#second-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
