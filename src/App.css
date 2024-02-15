@@ -41,7 +41,7 @@
 }
 
 /* 두번째 컨테이너 */
-#second-container {
+.second-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
