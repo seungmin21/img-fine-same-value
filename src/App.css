@@ -56,7 +56,7 @@
   flex-direction: column;
 }
 
-#box {
+.box {
   width: 7vw;
   height: 100vh;
 }
