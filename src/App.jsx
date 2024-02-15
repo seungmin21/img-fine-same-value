@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import catNames from "./nameValue";
 import { Link } from "react-router-dom";
+import FirstContainer from "./component/first-component.jsx"
 
 function App() {
   const [count, setCount] = useState(0);
@@ -76,22 +77,7 @@ function App() {
 
   return (
     <div id="Instead">
-      <div className="first-container">
-        <div className="iconLogText">
-          <div className="log-maker">
-            <Link to="https://github.com/seungmin21/img-fine-same-value">
-              <div className="log-image"></div>
-            </Link>
-            <h3 className="marginTop-20">이미지 사전</h3>
-          </div>
-          <hr />
-          {logData.map((item, index) => (
-            <div className="marginTop-20 marginLeft-16" key={index}>
-              {item}
-            </div>
-          ))}
-        </div>
-      </div>
+      <FirstContainer logData={logData} />
       <div className="box"></div>
       <div className="second-container">
         <button id="text-name" onClick={handleClick}>
