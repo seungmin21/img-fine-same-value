@@ -61,7 +61,7 @@
   height: 100vh;
 }
 
-#log-maker {
+.log-maker {
   display: flex;
   margin-bottom: 30px;
 }
