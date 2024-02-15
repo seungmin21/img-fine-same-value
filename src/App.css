@@ -114,11 +114,6 @@ img {
   border-radius: 10px;
 }
 
-#Log-Mark {
-  display :flex;
-  flex-direction: column;
-}
-
 .padding-10 {
   padding: 10px;
 }
