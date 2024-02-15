@@ -80,7 +80,7 @@ function App() {
       <div id="container-zero">
         <div className="log-maker">
           <Link to="https://github.com/seungmin21/img-fine-same-value">
-          <div id="Log-Image"></div>
+          <div id="log-image"></div>
           </Link>
           <h3 className="marginTop-20">이미지 사전</h3>
         </div>
