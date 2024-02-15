@@ -119,7 +119,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div id="container-two">
+      <div id="third-container">
         <h3 className="marginLeft-210 marginBottom-20">
           *주의* 사진이 못생겼을 수도 있습니다.
         </h3>
