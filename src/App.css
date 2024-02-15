@@ -91,7 +91,7 @@ button:hover {
 }
 
 /* 이미지 출력되는 위치 */
-#result {
+.result {
   display: flex;
   justify-content: center;
   align-items: center;
