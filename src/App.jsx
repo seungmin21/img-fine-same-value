@@ -76,7 +76,7 @@ function App() {
 
   return (
     <div id="Instead">
-      <div id="first-container">
+      <div className="first-container">
       <div id="container-zero">
         <div className="log-maker">
           <Link to="https://github.com/seungmin21/img-fine-same-value">
