@@ -28,7 +28,7 @@
   z-index: -1;
 }
 
-#container {
+#first-container {
   width: 240px;
   height: 100vh;
   background-color: rgb(61, 38, 38);
