@@ -5,6 +5,7 @@ import catNames from "./nameValue";
 import { Link } from "react-router-dom";
 import FirstContainer from "./component/first-component.jsx"
 import SecondComponent from "./component/second-component.jsx"
+import ThirdContainer from "./component/third-container.jsx"
 
 function App() {
   const [count, setCount] = useState(0);
@@ -81,14 +82,7 @@ function App() {
       <FirstContainer logData={logData} />
       <div className="box"></div>
       <SecondComponent handleClick={handleClick} inputText={inputText} handleChange={handleChange} handleKeyPress={handleKeyPress} />
-      {/* 세번째 컨테이너를 가리키기 위한 작명으로 사용 */}
-      <div id="third-container">
-        <h3 className="marginLeft-210 marginBottom-20">
-          *주의* 사진이 못생겼을 수도 있습니다.
-        </h3>
-        {/* 이미지가 출력될 태그 */}
-        <div id="result">{imagePath && <img src={imagePath} alt="?" />}</div>
-      </div>
+      <ThirdContainer imagePath={imagePath} />
     </div>
   );
 }
