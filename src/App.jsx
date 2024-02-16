@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import getRandomItem from "./module/randomItem.js";
+import postValue from "./module/httpRequest.js"
 import FirstContainer from "./component/first-component.jsx"
 import SecondComponent from "./component/second-component.jsx"
 import ThirdContainer from "./component/third-container.jsx"
@@ -37,11 +38,7 @@ function App() {
     // trim 공백 제거 문자열 메서드
     if (e.key === "Enter" && inputText.trim() !== "") {
       try {
-        // 여기서 '/api/addValue'로 수정
-        await axios.post("http://localhost:3001/api/addValue", {
-          value: inputText,
-        });
-        console.log("Value added successfully!");
+        await postValue(inputText);
 
         // 문자열이 일치하는지
         const imageFileName = `${inputText}.jpg`;
