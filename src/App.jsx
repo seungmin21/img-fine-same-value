@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import catNames from "./nameValue";
+import catNames from "./module/nameValue.js";
 import FirstContainer from "./component/first-component.jsx"
 import SecondComponent from "./component/second-component.jsx"
 import ThirdContainer from "./component/third-container.jsx"
