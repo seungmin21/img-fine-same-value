@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import getRandomItem from "./module/randomItem.js";
 import postValue from "./module/httpRequest.js"
 import FirstContainer from "./component/first-component.jsx"
@@ -42,6 +41,7 @@ function App() {
 
         // 문자열이 일치하는지
         const imageFileName = `${inputText}.jpg`;
+        // 문자열이 일치하는 것이 완료될때까지 fetch로 이미지 받아오는 것 기다리기
         await fetch(`cat-image/${imageFileName}`);
         setImagePath(`cat-image/${imageFileName}`);
       } catch (error) {
