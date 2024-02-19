@@ -8,7 +8,7 @@ export default function ThirdContainer({imagePath}) {
         *주의* 사진이 못생겼을 수도 있습니다.
       </h3>
       {/* 이미지가 출력될 태그 */}
-      <div id="result">{imagePath && <img src={imagePath} alt="?" />}</div>
+      <div className="result">{imagePath && <img src={imagePath} alt="?" />}</div>
     </div>
   );
 }
