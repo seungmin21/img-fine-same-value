@@ -1,5 +1,5 @@
 async function RefreshLogData() {
-  const fetchLogData = require('fetchLogData.js');
+  const fetchLogData = require('./fetchLogData.js');
 
   fetchLogData();
 
