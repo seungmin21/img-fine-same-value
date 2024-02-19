@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import catNames from "./nameValue";
+import getRandomItem from "./module/randomItem.js";
+import postValue from "./module/httpRequest.js"
 import FirstContainer from "./component/first-component.jsx"
 import SecondComponent from "./component/second-component.jsx"
 import ThirdContainer from "./component/third-container.jsx"
@@ -18,8 +18,7 @@ function App() {
   // 랜덤으로 alert에 배열 중에 랜덤으로 요소를 출력
   const handleClick = () => {
     if (count < number) {
-      const randomIndex = Math.floor(Math.random() * catNames.length);
-      const newItem = catNames[randomIndex];
+      const newItem = getRandomItem();
       setRandomItem(newItem);
       // count = 0 일 때 count++ === count + 1
       setCount(count + 1);
@@ -38,14 +37,11 @@ function App() {
     // trim 공백 제거 문자열 메서드
     if (e.key === "Enter" && inputText.trim() !== "") {
       try {
-        // 여기서 '/api/addValue'로 수정
-        await axios.post("http://localhost:3001/api/addValue", {
-          value: inputText,
-        });
-        console.log("Value added successfully!");
+        await postValue(inputText);
 
         // 문자열이 일치하는지
         const imageFileName = `${inputText}.jpg`;
+        // 문자열이 일치하는 것이 완료될때까지 fetch로 이미지 받아오는 것 기다리기
         await fetch(`cat-image/${imageFileName}`);
         setImagePath(`cat-image/${imageFileName}`);
       } catch (error) {
