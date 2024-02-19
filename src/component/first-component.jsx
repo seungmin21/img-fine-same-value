@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function FirstContainer ( {logData} ) {
+function firstContainer ( {logData} ) {
   return (
     <div className="first-container">
         <div className="iconLogText">
@@ -22,4 +22,4 @@ function FirstContainer ( {logData} ) {
   )
 }
 
-export default FirstContainer
+export default firstContainer
