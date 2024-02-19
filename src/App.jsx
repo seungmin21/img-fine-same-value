@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import getRandomItem from "./module/randomItem.js";
 import postValue from "./module/httpRequest.js";
 import fetchLogData from "./module/fetchLogData.js"
+import refreshLogData from "./module/exportLogData.js";
 import FirstContainer from "./component/first-component.jsx";
 import SecondComponent from "./component/second-component.jsx";
 import ThirdContainer from "./component/third-container.jsx";
@@ -52,16 +53,12 @@ function App() {
   };
 
   useEffect(() => {
-    // 초기 데이터 로드 및 데이터 갱신을 위한 fetchLogData 함수 호출
-    fetchLogData(setLogData);
-
-    // 2초마다 데이터 갱신
-    const intervalId = setInterval(() => {
-      fetchLogData(setLogData);
-    }, 2000);
+    const cleanup = refreshLogData().catch((error) => {
+      console.error("again")
+    })
 
     // 컴포넌트가 언마운트되면 interval 정리
-    return () => clearInterval(intervalId);
+    return cleanup()
   }, []);
 
 
