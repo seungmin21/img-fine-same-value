@@ -67,7 +67,7 @@
 }
 
 .log-image {
-  background-image: url("/public/cat-image/pngwing.jpg");
+  background-image: url("/public/cat-image/pngWing.jpg");
   background-size: cover;
   width : 60px;
   height: 60px;
@@ -144,7 +144,7 @@ img {
 
 hr {
   width: 238px;
-  translate: -10px;
+  transform: translateX(-10px);
 }
 
 .use-guides {
