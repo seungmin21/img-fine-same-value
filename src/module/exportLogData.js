@@ -1,6 +1,6 @@
+import fetchLogData from './fetchLogData.js'
 
 async function refreshLogData() {
-  const fetchLogData = require('./fetchLogData.js')
 
   fetchLogData();
 
