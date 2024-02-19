@@ -52,15 +52,13 @@ function App() {
   };
 
   useEffect(() => {
-    refreshLogData()
-      .then((logData) => {
-        // 로직이 성공시 실행되는 구문
-        console.log(logData)
-    })
-    .catch((error) => {
-      // 에러 처리
-      console.error("GetLogData not defined", error)
-    })
+    // 로그 데이터 가져오기 및 갱신을 위한 로직
+    const cleanup = refreshLogData().catch((error) =>
+      console.error("Error in fetch and refresh log data:", error)
+    );
+
+    // 컴포넌트가 언마운트될 때 정리
+    return () => cleanup();
   }, []);
 
   return (
