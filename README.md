@@ -37,15 +37,31 @@ IMG-FINE-SAME-VALUE
 |
 |-- public
 |   |-- index.html
+|   |-- favicon.ico
+|   |-- styles.css
+|   |-- test.html
 |   └── cat-image
 |       └── (이미지 파일들)
+|
 |-- src
+|   |-- component
+|   |   |-- first-component.jsx
+|   |   |-- second-component.jsx
+|   |   └── third-component.jsx
+|   |
+|   |-- module
+|   |   |-- exportLogData.js(실험용)
+|   |   |-- fetchLogData.js
+|   |   |-- httpRequest.js
+|   |   |-- nameValue.js
+|   |   └── randomItem.js
+|   |
 |   |-- App.css
 |   |-- App.jsx
 |   |-- index.css
 |   |-- index.js
 |   |-- log.json
-|   |-- nameValue.js
+|   |-- router.js
 |   
 └── server.js
 
