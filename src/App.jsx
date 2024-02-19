@@ -52,14 +52,10 @@ function App() {
   };
 
   useEffect(() => {
-    // 로그 데이터 가져오기 및 갱신을 위한 로직
-    const cleanup = refreshLogData().catch((error) =>
-      console.error("Error in fetch and refresh log data:", error)
-    );
+    const cleanup = refreshLogData(setLogData)
+    return cleanup;
+  }, []); // 빈 배열은 처음 한 번만 실행되도록 보장합니다.
 
-    // 컴포넌트가 언마운트될 때 정리
-    return () => cleanup();
-  }, []);
 
   return (
     <div id="Instead">
