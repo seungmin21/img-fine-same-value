@@ -1,10 +1,11 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import getRandomItem from "./module/randomItem.js";
-import postValue from "./module/httpRequest.js"
-import FirstContainer from "./component/first-component.jsx"
-import SecondComponent from "./component/second-component.jsx"
-import ThirdContainer from "./component/third-container.jsx"
+import postValue from "./module/httpRequest.js";
+import RefreshLogData from "./module/exportLogData.js";
+import FirstContainer from "./component/first-component.jsx";
+import SecondComponent from "./component/second-component.jsx";
+import ThirdContainer from "./component/third-container.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -51,32 +52,25 @@ function App() {
   };
 
   useEffect(() => {
-    // 마운트(호출) 되는 위치
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:3001/api/logData");
-        const data = await response.json();
-        setLogData(data);
-      } catch (error) {
-        console.error("Error fetching log data:", error);
-      }
-    };
-
-    // 초기 데이터 로드
-    fetchData();
-
-    // 2초마다 데이터 갱신
-    const intervalId = setInterval(fetchData, 2000);
-
-    // 컴포넌트가 언마운트되면 interval 정리
-    return () => clearInterval(intervalId);
-  }, []); // 빈 배열은 처음 한 번만 실행되도록 보장합니다.
+      .then(() => {
+        const getLogData = RefreshLogData()
+    })
+    .catch((error) => {
+      console.error("GetLogData not defined", error)
+    })
+    return () => getLogData()
+  }, []);
 
   return (
     <div id="Instead">
       <FirstContainer logData={logData} />
       <div className="box"></div>
-      <SecondComponent handleClick={handleClick} inputText={inputText} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+      <SecondComponent
+        handleClick={handleClick}
+        inputText={inputText}
+        handleChange={handleChange}
+        handleKeyPress={handleKeyPress}
+      />
       <ThirdContainer imagePath={imagePath} />
     </div>
   );
