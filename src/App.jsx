@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import getRandomItem from "./module/randomItem.js";
 import postValue from "./module/httpRequest.js";
-import RefreshLogData from "./module/exportLogData.js";
+import refreshLogData from "./module/exportLogData.js";
 import FirstContainer from "./component/first-component.jsx";
 import SecondComponent from "./component/second-component.jsx";
 import ThirdContainer from "./component/third-container.jsx";
@@ -52,13 +52,15 @@ function App() {
   };
 
   useEffect(() => {
-      .then(() => {
-        const getLogData = RefreshLogData()
+    refreshLogData()
+      .then((logData) => {
+        // 로직이 성공시 실행되는 구문
+        console.log(logData)
     })
     .catch((error) => {
+      // 에러 처리
       console.error("GetLogData not defined", error)
     })
-    return () => getLogData()
   }, []);
 
   return (
