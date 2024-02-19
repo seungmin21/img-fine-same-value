@@ -2,7 +2,9 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import catNames from "./nameValue";
-import { Link } from "react-router-dom";
+import FirstContainer from "./component/first-component.jsx"
+import SecondComponent from "./component/second-component.jsx"
+import ThirdContainer from "./component/third-container.jsx"
 
 function App() {
   const [count, setCount] = useState(0);
@@ -76,22 +78,7 @@ function App() {
 
   return (
     <div id="Instead">
-      <div className="first-container">
-        <div className="iconLogText">
-          <div className="log-maker">
-            <Link to="https://github.com/seungmin21/img-fine-same-value">
-              <div className="log-image"></div>
-            </Link>
-            <h3 className="marginTop-20">이미지 사전</h3>
-          </div>
-          <hr />
-          {logData.map((item, index) => (
-            <div className="marginTop-20 marginLeft-16" key={index}>
-              {item}
-            </div>
-          ))}
-        </div>
-      </div>
+      <FirstContainer logData={logData} />
       <div className="box"></div>
       <div className="second-container">
         <button id="text-name" onClick={handleClick}>
@@ -125,7 +112,7 @@ function App() {
           *주의* 사진이 못생겼을 수도 있습니다.
         </h3>
         {/* 이미지가 출력될 태그 */}
-        <div className="result">{imagePath && <img src={imagePath} alt="?" />}</div>
+        <div id="result">{imagePath && <img src={imagePath} alt="?" />}</div>
       </div>
     </div>
   );
