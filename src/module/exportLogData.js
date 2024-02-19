@@ -1,8 +1,8 @@
 import fetchLogData from './fetchLogData.js'
 
-async function refreshLogData() {
+async function refreshLogData(setLogData) {
 
-  fetchLogData();
+  fetchLogData(setLogData);
 
    // 2초마다 데이터 갱신
   const intervalId = setInterval(fetchLogData, 2000);
