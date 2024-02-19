@@ -22,11 +22,13 @@ router.post('/api/addValue', (req, res) => {
   }
 
   fs.readFile('src/log.json', 'utf8', (err, data) => {
+    // 못 읽었을 때 에러 처리
     if (err) {
       console.error(err);
       return res.status(500).send('Error reading log file');
     }
 
+    // 읽었을 경우 JSON을 분석
     let log = [];
     if (data) {
       try {
