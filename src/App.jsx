@@ -4,8 +4,8 @@ import getRandomItem from "./module/randomItem.js";
 import postValue from "./module/httpRequest.js";
 import fetchLogData from "./module/fetchLogData.js"
 import FirstContainer from "./component/first-component.jsx";
-import SecondComponent from "./component/second-component.jsx";
-import ThirdContainer from "./component/third-container.jsx";
+import SecondContainer from "./component/second-component.jsx";
+import ThirdContainer from "./component/third-component.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -70,7 +70,7 @@ function App() {
     <div id="Instead">
       <FirstContainer logData={logData} />
       <div className="box"></div>
-      <SecondComponent handleClick={handleClick} inputText={inputText} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+      <SecondContainer handleClick={handleClick} inputText={inputText} handleChange={handleChange} handleKeyPress={handleKeyPress} />
       <ThirdContainer imagePath={imagePath} />
     </div>
   );
