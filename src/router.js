@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const fs = require('fs');
 
+// get 요청으로 index.html을 응답해서 페이지를 보여주는 형태
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
@@ -11,6 +12,8 @@ router.get("/", (req, res) => {
 //  res.sendFile(path.join(__dirname, "public/test.html"))
 //})
 
+
+// POST 요청으로 log.json을 읽고 log.json에 데이터가 기록되는 형태
 router.post('/api/addValue', (req, res) => {
   const { value } = req.body;
 
@@ -47,6 +50,7 @@ router.post('/api/addValue', (req, res) => {
   });
 });
 
+// GET 요청으로 log.json에 있는 데이터를 가져오는 것
 router.get('/api/logData', (req, res) => {
   fs.readFile(path.join(__dirname, 'log.json'), 'utf8', (err, data) => {
     if (err) {
