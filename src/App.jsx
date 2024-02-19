@@ -1,10 +1,11 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import getRandomItem from "./module/randomItem.js";
-import postValue from "./module/httpRequest.js"
-import FirstContainer from "./component/first-component.jsx"
-import SecondComponent from "./component/second-component.jsx"
-import ThirdContainer from "./component/third-container.jsx"
+import postValue from "./module/httpRequest.js";
+import fetchLogData from "./module/fetchLogData.js"
+import FirstContainer from "./component/first-component.jsx";
+import SecondComponent from "./component/second-component.jsx";
+import ThirdContainer from "./component/third-container.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -51,65 +52,26 @@ function App() {
   };
 
   useEffect(() => {
-    // 마운트(호출) 되는 위치
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:3001/api/logData");
-        const data = await response.json();
-        setLogData(data);
-      } catch (error) {
-        console.error("Error fetching log data:", error);
-      }
-    };
-
-    // 초기 데이터 로드
-    fetchData();
+    // 초기 데이터 로드 및 데이터 갱신을 위한 fetchLogData 함수 호출
+    fetchLogData(setLogData);
 
     // 2초마다 데이터 갱신
-    const intervalId = setInterval(fetchData, 2000);
+    const intervalId = setInterval(() => {
+      fetchLogData(setLogData);
+    }, 2000);
 
     // 컴포넌트가 언마운트되면 interval 정리
     return () => clearInterval(intervalId);
-  }, []); // 빈 배열은 처음 한 번만 실행되도록 보장합니다.
+  }, []);
+
+
 
   return (
     <div id="Instead">
       <FirstContainer logData={logData} />
       <div className="box"></div>
-      <div className="second-container">
-        <button id="text-name" onClick={handleClick}>
-          Hint
-        </button>
-        {/* onkeyPress */}
-        <input
-          type="text"
-          id="search-bar"
-          name="search-bar"
-          placeholder="입력해주세요."
-          value={inputText}
-          onChange={handleChange}
-          onKeyDown={handleKeyPress}
-        />
-        <div className="use-guides">
-          <div className="memoHeaderColor">
-            <h3 className="padding-10">사용 가이드</h3>
-          </div>
-          <div className="marginTop-10">
-            <li>왼쪽의 빈 공간은 사용자가 입력한 내용에 관한 저장소입니다.</li>
-            <li>왼쪽 상단의 아이콘은 클릭 시 이 프로젝트의 github 사이트로 방문할 수 있습니다.</li>
-            <li>Hint 버튼은 어떤 이름이 있는지 사용자에게 알려줍니다.</li>
-            <li>검색 바에 Hint 버튼에서 나온 이름을 입력하고 Enter를 누르면 오른쪽에 이름과 관련된 사진이 나타납니다.</li>
-          </div>
-        </div>
-      </div>
-      {/* 세번째 컨테이너를 가리키기 위한 작명으로 사용 */}
-      <div id="third-container">
-        <h3 className="marginLeft-210 marginBottom-20">
-          *주의* 사진이 못생겼을 수도 있습니다.
-        </h3>
-        {/* 이미지가 출력될 태그 */}
-        <div id="result">{imagePath && <img src={imagePath} alt="?" />}</div>
-      </div>
+      <SecondComponent handleClick={handleClick} inputText={inputText} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+      <ThirdContainer imagePath={imagePath} />
     </div>
   );
 }
