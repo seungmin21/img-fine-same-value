@@ -1,5 +1,6 @@
-async function RefreshLogData() {
-  const fetchLogData = require('./fetchLogData.js');
+
+async function refreshLogData() {
+  const fetchLogData = require('./fetchLogData.js')
 
   fetchLogData();
 
@@ -10,5 +11,4 @@ async function RefreshLogData() {
   return () => clearInterval(intervalId);
 }
 
-export default RefreshLogData
-
+export default refreshLogData
