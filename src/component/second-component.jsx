@@ -16,6 +16,7 @@ function secondContainer({handleClick, inputText, handleChange, handleKeyPress})
       onChange={handleChange}
       onKeyDown={handleKeyPress}
     />
+    {/* 컴포넌트 한번 더 */}
     <div className="use-guides">
       <div className="memoHeaderColor">
         <h3 className="padding-10">사용 가이드</h3>
