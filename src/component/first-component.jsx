@@ -5,6 +5,7 @@ function firstContainer ( {logData} ) {
   return (
     <div className="first-container">
         <div className="iconLogText">
+          {/* 컴포넌트 한번 더 */}
           <div className="log-maker">
             <Link to="https://github.com/seungmin21/img-fine-same-value">
               <div className="log-image"></div>
