@@ -3,9 +3,9 @@ import React, { useState, useEffect } from "react";
 import getRandomItem from "./module/randomItem.js";
 import postValue from "./module/httpRequest.js";
 import fetchLogData from "./module/fetchLogData.js"
-import FirstContainer from "./component/first-component.jsx";
-import SecondContainer from "./component/second-component.jsx";
-import ThirdContainer from "./component/third-component.jsx";
+import RecordShowPlaces from "./component/recordShowPlaces.jsx";
+import InformationInputGuides from "./component/informationInputGuides.jsx";
+import ShowImagePlaces from "./component/showImagePlaces.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -68,10 +68,10 @@ function App() {
 
   return (
     <div id="Instead">
-      <FirstContainer logData={logData} />
+      <RecordShowPlaces logData={logData} />
       <div className="box"></div>
-      <SecondContainer handleClick={handleClick} inputText={inputText} handleChange={handleChange} handleKeyPress={handleKeyPress} />
-      <ThirdContainer imagePath={imagePath} />
+      <InformationInputGuides handleClick={handleClick} inputText={inputText} handleChange={handleChange} handleKeyPress={handleKeyPress} />
+      <ShowImagePlaces imagePath={imagePath} />
     </div>
   );
 }
