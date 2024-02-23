@@ -1,6 +1,6 @@
 import React from 'react'
 
-function secondContainer({handleClick, inputText, handleChange, handleKeyPress}) {
+function informationInputGuides({handleClick, inputText, handleChange, handleKeyPress}) {
   return (
     <div className="second-container">
     <button id="text-name" onClick={handleClick}>
@@ -31,4 +31,4 @@ function secondContainer({handleClick, inputText, handleChange, handleKeyPress})
   );
 }
 
-export default secondContainer;
+export default informationInputGuides;
