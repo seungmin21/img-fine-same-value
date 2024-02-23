@@ -1,6 +1,6 @@
 import React from "react";
 
-function thirdContainer({imagePath}) {
+function showImagePlaces({imagePath}) {
   return (
     // 3번째 컨테이너를 지칭
     <div id="third-container">
@@ -13,4 +13,4 @@ function thirdContainer({imagePath}) {
   );
 }
 
-export default thirdContainer
+export default showImagePlaces
