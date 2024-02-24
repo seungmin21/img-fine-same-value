@@ -1,16 +1,17 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const port = 3000;
+const port = 3001;
 const fs = require("fs");
 const bodyParser = require("body-parser");
-const router = require('./src/router')
+const router = require('../src/router')
+const cors = require('cors')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 
 // static으로 정적 파일 제공(이미지파일)
-app.use('/cat-image', express.static(path.join(__dirname, 'cat-image')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 라우터 설정
