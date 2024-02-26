@@ -1,5 +1,5 @@
 import React from 'react'
-import Description from './description.jsx'
+import UseGuides from './useGuides.jsx'
 
 function informationInputGuides({handleClick, inputText, handleChange, handleKeyPress}) {
   return (
@@ -17,12 +17,7 @@ function informationInputGuides({handleClick, inputText, handleChange, handleKey
       onChange={handleChange}
       onKeyDown={handleKeyPress}
     />
-    <div className="use-guides">
-      <div className="memoHeaderColor">
-        <h3 className="padding-10">사용 가이드</h3>
-      </div>
-      <Description />
-    </div>
+    <UseGuides />
   </div>
   );
 }
